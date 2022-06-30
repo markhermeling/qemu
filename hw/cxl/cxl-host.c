@@ -36,6 +36,7 @@ static void cxl_fixed_memory_window_config(CXLState *cxl_state,
 
     fw->enc_int_ways = cxl_interleave_ways_enc(fw->num_targets, errp);
     if (*errp) {
+        g_free(fw);
         return;
     }
 
