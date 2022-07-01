@@ -59,6 +59,7 @@ static void cxl_fixed_memory_window_config(CXLState *cxl_state,
             cxl_interleave_granularity_enc(object->interleave_granularity,
                                            errp);
         if (*errp) {
+            g_free(fw);
             return;
         }
     } else {
