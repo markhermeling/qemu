@@ -366,6 +366,11 @@ static void amdvi_update_iotlb(AMDVIState *s, uint16_t devid,
         *key = gfn | ((uint64_t)(devid) << AMDVI_DEVID_SHIFT);
         g_hash_table_replace(s->iotlb, key, entry);
     }
+    else
+    {
+        g_free(entry);
+        g_free (key);
+    }
 }
 
 static void amdvi_completion_wait(AMDVIState *s, uint64_t *cmd)
