@@ -49,6 +49,7 @@ static void cxl_fixed_memory_window_config(CXLState *cxl_state,
     if (object->size % (256 * MiB)) {
         error_setg(errp,
                    "Size of a CXL fixed memory window must my a multiple of 256MiB");
+        g_free(fw);
         return;
     }
     fw->size = object->size;
